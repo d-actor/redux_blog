@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import { Container } from 'semantic-ui-react';
 
 const App = () => (
-  <Container>
+  <Container text>
     <div>
       <h1>Blogs!</h1>
       <BlogForm />
