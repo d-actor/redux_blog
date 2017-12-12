@@ -2,31 +2,42 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addBlog } from '../actions/blogs';
 import { incId } from '../actions/nextId';
+import { Form, Button } from 'semantic-ui-react';
 
 class BlogForm extends React.Component {
-  state = { name: '' }
+  state = { name: '', body: '' }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name } = this.state;
+    const { name, body } = this.state;
     const { id, dispatch } = this.props;
-    const blog = { id, name };
+    const blog = { id, name, body };
     dispatch(addBlog(blog))
     dispatch(incId())
-    this.setState({ name: '' })
+    this.setState({ name: '', body: '' })
   }
 
-  handleChange = (e) => this.setState({ name: e.target.value })
+  handleNameChange = (e) => this.setState({ name: e.target.value })
+  handleBodyChange = (e) => this.setState({ body: e.target.value })
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
+        Title:
         <input
           required
           value={this.state.name}
-          onChange={this.handleChange}
+          onChange={this.handleNameChange}
         />
-      </form>
+        <br />
+        Body:
+        <input
+          required
+          value={this.state.body}
+          onChange={this.handleBodyChange}
+        />
+        <Button>Submit</Button>
+      </Form>
     )
   }
 }
