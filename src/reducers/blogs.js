@@ -11,7 +11,7 @@ const blogs = ( state = [], action ) => {
     case 'DELETE_BLOG':
       return state.map( blog => {
         if (blog.id === action.id)
-          return [action.blog, ...blog]
+          return [...blog, action.blog]
         return state;
       })
     default:
