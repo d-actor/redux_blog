@@ -8,6 +8,12 @@ const blogs = ( state = [], action ) => {
           return { ...blog, read: !blog.read }
         return blog
       })
+    case 'DELETE_BLOG':
+      return state.map( blog => {
+        if (blog.id === action.id)
+          return [action.blog, ...blog]
+        return state;
+      })
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleBlog } from '../actions/blogs';
+import { toggleBlog, deleteBlog } from '../actions/blogs';
 import { Button } from 'semantic-ui-react';
 
 const Blog = ({ id, name, read, dispatch }) => (
@@ -24,7 +24,12 @@ const Blog = ({ id, name, read, dispatch }) => (
     <br />
     <Button primary onClick={'#'}>View</Button>
     <Button onClick={'#'}>Edit</Button>
-    <Button color='red' onClick={'#'}>Delete</Button>
+    <Button
+      color='red'
+      onClick={ () =>dispatch(deleteBlog(id)) }
+    >
+      Delete
+    </Button>
   </li>
 )
 
