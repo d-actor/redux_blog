@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogForm from './components/BlogForm';
 import BlogList from './components/BlogList';
+import BlogView from './components/BlogView';
 import Footer from './components/Footer';
 import { Container } from 'semantic-ui-react';
 
@@ -10,6 +11,7 @@ const App = () => (
       <h1>Blogs!</h1>
       <BlogForm />
       <BlogList />
+      <BlogView />
       <Footer />
     </div>
   </Container>
