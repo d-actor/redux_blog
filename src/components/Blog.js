@@ -4,10 +4,14 @@ import { toggleBlog } from '../actions/blogs';
 import { Button } from 'semantic-ui-react';
 
 const Blog = ({ id, name, read, dispatch }) => (
-  <li
-    style={ read ? { textDecoration: 'line-through'} : {}}
-  >
-    {name}
+  <li>
+    <span
+      style={
+        read ? { textDecoration: 'line-through'} : {}
+      }
+    >
+      {name}
+    </span>
     <br />
     <a onClick={ () => dispatch(toggleBlog(id)) }>Mark As Read</a>
     <br />
