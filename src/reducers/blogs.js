@@ -1,5 +1,7 @@
 const blogs = ( state = [], action ) => {
   switch (action.type) {
+    case 'BLOGS':
+      return action.blogs
     case 'ADD_BLOG':
       return [action.blog, ...state]
     case 'TOGGLE_BLOG':
@@ -8,12 +10,14 @@ const blogs = ( state = [], action ) => {
           return { ...blog, read: !blog.read }
         return blog
       })
-    case 'DELETE_BLOG':
+    case 'UPDATE_BLOG':
       return state.map( blog => {
-        if (blog.id === action.id)
-          return [...blog, action.blog]
-        return state;
+        if (blog.id === action.blog.id)
+          return action.blog
+        return blog
       })
+    case 'DELETE_BLOG':
+      return state.filter( b => b.id !== action.id )
     default:
       return state;
   }
