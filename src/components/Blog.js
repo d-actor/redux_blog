@@ -13,7 +13,14 @@ const Blog = ({ id, name, read, dispatch }) => (
       {name}
     </span>
     <br />
-    <a onClick={ () => dispatch(toggleBlog(id)) }>Mark As Read</a>
+    <a
+      style={
+        { cursor: 'pointer' }
+      }
+      onClick={ () => dispatch(toggleBlog(id)) }
+    >
+      Mark As Read
+    </a>
     <br />
     <Button primary onClick={'#'}>View</Button>
     <Button onClick={'#'}>Edit</Button>
